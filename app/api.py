@@ -2,7 +2,7 @@ import os
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 
-from app.rabbitmq import rabbitmq_client
+from app.produsser import rabbitmq_client
 from app.uploaded_file import upload_file
 from app.utils.exceptions import handle_http_exceptions
 

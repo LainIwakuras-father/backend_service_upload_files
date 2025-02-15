@@ -1,14 +1,16 @@
 import json
 
-import pika
+from pika import BlockingConnection, ConnectionParameters
 
+connection_params = ConnectionParameters(
+    host="localhost",
+    port=5672
+)
 
 class RabbitMQ:
     def __init__(self, host="localhost"):
         self.host = host
-        self.connection = pika.BlockingConnection(
-            pika.ConnectionParameters(host=self.host)
-        )
+        self.connection = BlockingConnection(connection_params)
         self.channel = self.connection.channel()
 
     def send_message(self, queue_name, message):
@@ -18,7 +20,6 @@ class RabbitMQ:
             exchange="",
             routing_key=queue_name,
             body=json.dumps(message),
-            properties=pika.BasicProperties(delivery_mode=2),
         )
 
     def close(self):
