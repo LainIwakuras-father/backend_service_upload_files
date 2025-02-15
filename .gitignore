@@ -1,0 +1,50 @@
+# General
+.DS_Store
+node_modules/
+build/
+dist/
+.env
+.env.local
+.env.*.local
+*.log
+*.cache
+*.pid
+*.pyc
+*.pyo
+__pycache__/
+.vscode/
+.idea/
+
+# Python
+*.py[cod]
+venv/
+.env
+.mypy_cache/
+.tox/
+.coverage
+htmlcov/
+pytest_cache/
+__pycache__/
+
+# Django/Flask
+*.sqlite3
+*.db
+instance/
+config/settings/local.py
+config/.env
+
+# React/Vue/Next.js
+.next/
+.nuxt/
+out/
+.cache/
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# PostgreSQL
+*.pgsql
+*.pgsql.gz
+*.sql
+pgdata/
+pg_dump.sql
