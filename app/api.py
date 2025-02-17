@@ -28,15 +28,7 @@ async def proccessing_data(file: UploadFile = File(...)):
     file_path = await upload_file(file)
 
     try:
-        task = {
-            "file_path": file_path,
-            "file_name": file.filename,
-        }
-        rabbitmq_client.send_message("file_queue", task)
-        return {
-            "message": "File uploaded and processed successfully",
-            "file_path": file_path,
-        }
+        
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to upload file: {e}")
     finally:
