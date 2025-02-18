@@ -24,6 +24,7 @@ class Settings(BaseSettings):
     S3_PORT: str
     S3_USER: str
     S3_PASSWORD: str
+
     # RabbitMQ settings
     # MQ_USER:str
     # MQ_PASSWORD:str

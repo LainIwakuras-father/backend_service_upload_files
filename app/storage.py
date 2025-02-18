@@ -3,7 +3,7 @@ import logging
 from minio import Minio
 from minio.error import S3Error
 
-from app.config import settings
+from app.core.config import settings
 
 
 class Storage:
@@ -29,15 +29,15 @@ class Storage:
             )
             return True
         except S3Error as e:
-            print(e)
+            logging.error(e)
             return False
 
-    def download_data(self, bucket_name, file_path):
+    def download_data(self, bucket_name, object_name):
         try:
-            self.client.fget_object(bucket_name=bucket_name, file_path=file_path)
-            print(f"File {file_path} downloaded from {bucket_name} bucket.")
+            self.client.get_object(bucket_name=bucket_name, object_name=object_name)
+            logging.info(f"File {object_name} downloaded from {bucket_name} bucket.")
         except S3Error as e:
-            print(e)
+            logging.error(e)
             return False
 
 

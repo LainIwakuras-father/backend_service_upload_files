@@ -2,11 +2,9 @@ import uuid
 
 from fastapi import UploadFile
 
-from app.config import UPLOAD_FOLDER
-from app.utils.exceptions import handle_http_exceptions
+from app.core.config import UPLOAD_FOLDER
 
 
-@handle_http_exceptions
 async def upload_file(uploaded_file: UploadFile):
     unique_filename = f"{uuid.uuid4().hex}_{uploaded_file.filename}"
     file_path = UPLOAD_FOLDER / unique_filename

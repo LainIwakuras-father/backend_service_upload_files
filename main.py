@@ -5,7 +5,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import router as batch_router
+from app.api.endpoints.batch import router as batch_router
 from app.storage import minio_storage
 
 logging.basicConfig(

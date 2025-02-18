@@ -20,3 +20,8 @@ def handle_http_exceptions(func):
             )
 
     return wrapper
+
+
+NoJwtException = HTTPException(
+    status_code=status.HTTP_401_UNAUTHORIZED, detail="Токен не валидный!"
+)
